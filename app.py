@@ -36,7 +36,7 @@ st.markdown(custom_css, unsafe_allow_html=True)
 #groq_api_key="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"
 
 # Select Model from Groq
-model = ChatGroq(model="Gemma2-9b-it",api_key=groq_api_key)
+model = ChatGroq(model="Gemma2-9b-it")
 
 # Define Prompt Template
 generic_template="Translate the following into {language}:"
