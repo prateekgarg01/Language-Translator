@@ -1,9 +1,12 @@
+# Import Necessary libraries
+
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 import streamlit as st
 
 # Define custom CSS
+
 custom_css = """
 <style>
 
@@ -23,20 +26,33 @@ custom_css = """
 # Inject CSS
 st.markdown(custom_css, unsafe_allow_html=True)
 
+# GROQ API Communication
 groq_api_key="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"
+
+# Select Model from Groq
 model = ChatGroq(model="Gemma2-9b-it",api_key=groq_api_key)
+
+# Define Prompt Template
 generic_template="Translate the following into {language}:"
 prompt=ChatPromptTemplate.from_messages(
     [("system",generic_template),("user","{text}")]
 )
 
-
+# Initialize String out Parser
 parser = StrOutputParser()
 
+# Define the Chain
 chain=prompt|model|parser
+
+# Streamlit App
+
+## Title
 st.title("Language Translator using Gemma2-9B LLM Model")
+
+## Input Fields
 input_text=st.text_input("Type The Word or Sentence","Hello")
 input_language=st.text_input("Translation Language","Swedish")
 
+## Define Button along witha call to chain.
 if st.button("Translate"):
     st.write("**Translated Output :**",chain.invoke({"language":input_language,"text":input_text}))
