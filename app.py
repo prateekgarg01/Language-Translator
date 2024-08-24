@@ -34,9 +34,9 @@ prompt=ChatPromptTemplate.from_messages(
 parser = StrOutputParser()
 
 chain=prompt|model|parser
-st.title("Language Translator")
-input_text=st.text_input("Type The Word or Sentence")
-input_language=st.text_input("Type the Language in which you want to Transalate the Text")
+st.title("Language Translator using Gemma2-9B LLM Model")
+input_text=st.text_input("Type The Word or Sentence","Hello")
+input_language=st.text_input("Translation Language","Swedish")
 
 if st.button("Translate"):
     st.write("**Translated Output :**",chain.invoke({"language":input_language,"text":input_text}))
