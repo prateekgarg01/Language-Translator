@@ -4,6 +4,12 @@ from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 import streamlit as st
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+os.environ["GROQ_API_KEY"]=os.getenv("GROQ_API_KEY")
 
 # Define custom CSS
 
@@ -27,7 +33,7 @@ custom_css = """
 st.markdown(custom_css, unsafe_allow_html=True)
 
 # GROQ API Communication
-groq_api_key="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"
+#groq_api_key="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"
 
 # Select Model from Groq
 model = ChatGroq(model="Gemma2-9b-it",api_key=groq_api_key)
