@@ -8,14 +8,14 @@ custom_css = """
 <style>
 
 .st-emotion-cache-187vdiz {
-    background-color: #ff4b4b; /* Red background */
+    background-color: #3295a8; 
     color: white; /* White text */
     border-radius: 8px; /* Rounded corners */
     padding: 10px 20px; /* Padding */
     font-size: 16px; /* Font size */
 }
 .st-emotion-cache-187vdiz:hover {
-    background-color: #3295a8; /* Darker red on hover */
+    background-color: #ff4b4b;
 }
 </style>
 """
