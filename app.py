@@ -3,6 +3,25 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 import streamlit as st
 
+# Define custom CSS
+custom_css = """
+<style>
+
+.st-emotion-cache-187vdiz {
+    background-color: #ff4b4b; /* Red background */
+    color: white; /* White text */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px; /* Font size */
+}
+.st-emotion-cache-187vdiz:hover {
+    background-color: #3295a8; /* Darker red on hover */
+}
+</style>
+"""
+
+# Inject CSS
+st.markdown(custom_css, unsafe_allow_html=True)
 
 groq_api_key="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"
 model = ChatGroq(model="Gemma2-9b-it",api_key=groq_api_key)
