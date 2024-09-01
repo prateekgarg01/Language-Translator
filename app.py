@@ -10,7 +10,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Load GROQ API Key from Environment
-os.environ["GROQ_API_KEY"]=os.getenv("GROQ_API_KEY")
+with st.sidebar:
+    groq_api_key=st.text_input("Groq API Key",type="password")
 
 # Define custom CSS
 custom_css = """
@@ -33,7 +34,7 @@ custom_css = """
 st.markdown(custom_css, unsafe_allow_html=True)
 
 # Select Model from Groq
-model = ChatGroq(model="Gemma2-9b-it")
+model = ChatGroq(groq_api_key=groq_api_key,ymodel="Gemma2-9b-it")
 
 # Define Prompt Template
 generic_template="Translate the following into {language}:"
